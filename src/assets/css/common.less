@@ -1,0 +1,369 @@
+/* 公共样式 */
+.wrapper{
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	min-width: 1200px;
+	min-height: 747px;
+	.sidebar{
+		height: 100%;
+		margin-right: 465px;
+		background: url(/static/imgs/bg1.png) center no-repeat;
+		background-size: cover;
+		overflow: hidden;
+		position: relative;
+		.second_bg{
+			width: 100%;
+			height: 100%;
+			background: url(/static/imgs/bg2.png) center no-repeat;
+			background-size: cover;
+		}
+		.copyright{
+			position: absolute;
+			bottom: 45px;
+			width: 100%;
+			text-align: center;
+			color: #fff;
+			font-size: 14px;
+			a{
+				color: #fff;
+			}
+			.company{
+				text-decoration: underline;
+			}
+		}
+	}
+	.content{
+		width: 465px;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		right: 0;
+		h1{
+			width: 249px;
+			height: 140px;
+			text-indent: -9999px;
+			background: url(/static/imgs/logo.png) 0 0 no-repeat;
+			position: absolute;
+			// top: 145px;
+			top: 15.1%;
+			left: 50%;
+			margin-left: -124.5px;
+		}
+		// 贵阳市logo
+		h1.guiyang{
+			width: 252px;
+			margin-left: -126px;
+			background-image: url(/static/imgs/logo2.png);
+		}
+	}
+}
+// 文本框默认样式
+input{
+	display: block;
+	width: 238px;
+	height: 36px;
+	border: 1px solid #D7D8E6;
+	border-radius: 18px;
+	font-size: 14px;
+	line-height: 36px;
+	padding-left: 20px;
+	outline: none;
+	margin: 0 0 14px 17px;
+	&:hover{
+		width: 237px;
+		height: 34px;
+		padding-left: 19px;
+		border: 2px solid #66D6FF;
+		box-shadow: 0px 0px 4px 2px rgba(102,214,255,.2);
+	}
+}
+input::-webkit-input-placeholder { /* WebKit browsers */ 
+	color: #737375;
+} 
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+	color: #737375;
+} 
+input::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+	color: #737375;
+} 
+input:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+	color: #737375;
+}
+// 按钮默认样式
+a.button{
+	display: block;
+	width: 294px;
+	height: 80px;
+	background: url(/static/imgs/button_bg.png) 0 0 no-repeat;
+	font-size: 16px;
+	color: #fff;
+	text-align: center;
+	line-height: 70px;
+	letter-spacing: 1px;
+}
+// 返回密码登录
+.comeback{
+	display: block;
+	font-size: 14px;
+	color: #767676;
+	text-align: center;
+	text-decoration: underline;
+}
+// 错误提示小弹层
+i{
+ 	position: absolute;
+ 	top: -42px;
+ 	left: 28px;
+ 	height: 30px;
+ 	background: -webkit-linear-gradient(#FF5CB4, #FF72A6); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(#FF5CB4, #FF72A6); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(#FF5CB4, #FF72A6); /* Firefox 3.6 - 15 */
+	background: linear-gradient(#FF5CB4, #FF72A6);
+	box-shadow: 0 1px 2px 2px rgba(255,94,179,.2);
+ 	font-size: 14px;
+ 	font-style: normal;
+ 	color: #fff;
+ 	line-height: 30px;
+ 	padding: 0 10px;
+ 	border-radius: 2px;
+ 	display: none;
+ 	&:after{
+ 		content: '';
+ 		width: 0;
+ 		height: 0;
+ 		border: 6px solid transparent;
+ 		border-top-color:  #FF72A6;
+ 		position: absolute;
+ 		top: 30px;
+ 		left: 30px;
+ 	}
+}
+
+/* 其他样式 */
+// 用户名登录
+.container1{
+	display: none;
+ 	width: 316px;
+ 	// height: 536px;
+ 	height: 55.83%;
+ 	position: absolute;
+ 	// top: 343px;
+ 	top: 35.73%;
+ 	left: 50%;
+ 	margin-left: -147px; //保持294宽度居中
+ 	&.active{
+ 		input{
+ 			background: url(/static/imgs/keyboard.png) 218px center no-repeat;
+ 			background-size: 30px 30px;
+ 		}
+ 		#captcha{
+ 			background-position: 168px center;
+ 		}
+ 		.other{
+ 			display: none;
+ 		}
+ 		#softkey,#softkey2,#softkey3{
+ 			display: block;
+ 		}
+ 	}
+ 	// 验证码
+	#captcha_code{
+		height: 38px;
+		// 默认隐藏
+		display: none;
+		position: relative;
+		input{
+			float: left;
+			width: 150px;
+			margin: 0 0 0 17px;
+		}
+		.code{
+			position: absolute;
+			top: 0;
+			right: 36px;
+		}
+		img{
+			display: block;
+			width: 87px;
+			height: 37px;
+			cursor: pointer;
+		}
+	}
+	a.login_btn{
+		margin-top: 45px;
+	}
+	.other{
+		width: 260px;
+		margin-left: 18px;
+		overflow: hidden;
+		a{
+			font-size: 14px;
+			color: #737375;
+		}
+		.other_login{
+			float: left;
+		}
+		.forget{
+			float: right;
+		}
+	}
+	.student_code{
+	 	display: none;
+	 	width: 79px;
+	 	height: 79px;
+	 	background: url(/static/imgs/student_code.png) 0 0 no-repeat;
+	 	// margin: 170px auto 0;
+	 	position: absolute;
+	 	bottom: 0;
+	 	left: 50%;
+	 	margin-left: -39.5px;
+	 	&:hover{
+	 		background-image: url(/static/imgs/student_code_cur.png);
+	 	}
+	}
+	// 软键盘
+	#softkey,#softkey2,#softkey3{
+		display: none;
+		position: absolute;
+		top: 40px;
+		left: -280px;
+	}
+	#softkey2{
+		top: 92px;
+	}
+	#softkey3{
+		top: 144px;
+	}
+}
+
+// 二维码登录
+.container2{
+	width: 250px;
+	// height: 343px;
+	position: absolute;
+	// top: 378px;
+	top: 39.5%;
+	left: 50%;
+	margin-left: -125px;
+	display: none;
+	.twobarcode{
+		width: 126px;
+		height: 126px;
+		margin: 0 auto;
+	}
+	.expired{
+		width: 126px;
+		height: 126px;
+		position: absolute;
+		top: 0;
+		left: 62px;
+		display: none;
+		&.active{
+			display: block;
+		}
+	}
+	.refresh{
+		font-size: 14px;
+		color: #767676;
+		padding-left: 25px;
+		background: url(/static/imgs/refresh.png) left center no-repeat;
+		text-decoration: underline;
+		cursor: pointer;
+		position: absolute;
+		top: 140px;
+		left: 103px;
+		display: none;
+		&.active{
+			display: block;
+		}
+	}
+	.scan{
+		width: 134px;
+		height: 36px;
+		margin: 100px auto 62px;
+		padding-left: 50px;
+		background: url(/static/imgs/qr_code.png) left center no-repeat;
+		p{
+			font-size: 14px;
+			color: #767676;
+			line-height: 18px;
+			span{
+				color: #00BAFF;
+			}
+		}
+	}
+}
+
+// 上次登录账号确认
+.container3{
+	width: 294px;
+	position: absolute;
+	// top: 416px;
+	top: 43.8%;
+	left: 50%;
+	margin-left: -147px;
+	display: none;
+	p{
+		font-size: 14px;
+		color: #828587;
+		text-align: center;
+		span{
+			font-size: 24px;
+			color: #00BAFF;
+			display: block;
+			margin-top: 13px;
+		}
+	}
+	.confirm_btn{
+		margin-top: 140px;
+	}
+}
+
+// 扫描成功
+.container4{
+	width: 180px;
+	position: absolute;
+	// top: 380px;
+	top: 40%;
+	left: 50%;
+	margin-left: -90px;
+	display: none;
+	p{
+		font-size: 18px;
+		color: #7D7D7D;
+		text-align: center;
+	}
+	img{
+		display: block;
+		margin: 21px auto 35px;
+	}
+	span{
+		display: block;
+		font-size: 15px;
+		color: #00BAFF;
+		text-align: center;
+		margin-bottom: 115px;
+	}
+}
+
+// 学籍号登录
+.container5{
+	width: 294px;
+	position: absolute;
+	// top: 354px;
+	top: 37.3%;
+	left: 50%;
+	margin-left: -147px;
+	display: none;
+	p{
+		font-size: 14px;
+		color: #00BAFF;
+		line-height: 36px;
+		margin-top: -14px;
+		padding-left: 30px;
+	}
+	.sure_btn{
+		margin-top: 24px;
+	}
+}
