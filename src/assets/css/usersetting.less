@@ -1,0 +1,786 @@
+.wrapper{
+	// 公共样式
+	height: 100%;
+	overflow: hidden;
+	min-width: 1000px;
+	min-height: 730px;
+	background: url(/static/imgs/bg3.png) center no-repeat;
+	background-size: cover;
+	position: relative;
+	// 文本框默认样式
+	input{
+		display: block;
+		width: 338px;
+		height: 48px;
+		background-color: transparent;
+		border: 1px solid #D4D6E5;
+		border-radius: 24px;
+		margin: 0 auto;
+		font-size: 16px;
+		outline: none;
+		padding-left: 20px;
+		margin-bottom: 28px;
+		&:hover{
+			width: 337px;
+			height: 46px;
+			padding-left: 19px;
+			border: 2px solid #66D6FF;
+			box-shadow: 0px 0px 4px 2px rgba(102,214,255,.2);
+		}
+	}
+	input::-webkit-input-placeholder { /* WebKit browsers */ 
+		color: #B2B2BE;
+	} 
+	input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+		color: #B2B2BE;
+	} 
+	input::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+		color: #B2B2BE;
+	} 
+	input:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+		color: #B2B2BE;
+	}
+	// 按钮默认样式
+	.button{
+		width: 392px;
+		height: 88px;
+		display: block;
+		background: url(/static/imgs/big_button.png) 0 0 no-repeat;
+		margin: 0 auto;
+		font-size: 20px;
+		color: #fff;
+		text-align: center;
+		line-height: 76px;
+		letter-spacing: 1px;
+	}
+	// 返回上一页
+	.goback{
+		display: block;
+		font-size: 14px;
+		color: #767676;
+		text-align: center;
+		text-decoration: underline;
+	}
+	// h1默认样式
+	h1{
+		font-size: 36px;
+		color: #00D2FF;
+		text-align: center;
+		letter-spacing: 2px;
+	}
+
+	// 设置密码
+	.container1{
+		width: 500px;
+		position: absolute;
+		// top: 180px;
+		top: 19%;
+		left: 50%;
+		margin-left: -250px;
+		display: none;
+		h1{
+			margin-bottom: 63px;
+		}
+		p{
+			color: #737375;
+			span{
+				color: #00D2FF;
+			}
+		}
+		.account{
+			font-size: 22px;
+			text-align: center;
+			margin-bottom: 68px;
+		}
+		.kindly_reminder{
+			font-size: 16px;
+			text-align: center;
+			margin-bottom: 51px;
+		}
+		.msg{
+			font-size: 15px;
+			color: #00D2FE;
+			padding-left: 90px;
+			position: relative;
+			top: -20px;
+		}
+	}
+
+	// 密码设置成功
+	.container2{
+		width: 570px;
+		position: absolute;
+		// top: 209px;
+		top: 22%;
+		left: 50%;
+		margin-left: -275px;
+		display: none;
+		h1{
+			margin-bottom: 139px;
+		}
+		p{
+			font-size: 22px;
+			color: #737375;
+			text-align: center;
+			margin-bottom: 147px;
+		}
+	}
+
+	// 云平台入口
+	.container3{
+		width: 504px;
+		position: absolute;
+		/* top: 15.5%;
+		left: 50%;
+		margin-left: -252px; */
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		display: none;
+		h1{
+			margin-bottom: 109px;
+		}
+		ul{
+			li{
+				width: 500px;
+				height: 70px;
+				border: 2px solid #64DAF8;
+				border-radius: 2px;
+				margin-bottom: 32px;
+				box-shadow: 0 0 6px 4px rgba(100,218,248,.2);
+				a{
+					display: block;
+					font-size: 18px;
+					color: #737375;
+					text-align: center;
+					line-height: 70px;
+				}
+			}
+		}
+	}
+
+	// 系统升级 重新设置用户名
+	.container4{
+		width: 500px;
+		position: absolute;
+		// top: 210px;
+		top: 22.1%;
+		left: 50%;
+		margin-left: -250px;
+		display: none;
+		h1{
+			margin-bottom: 92px;
+		}
+		.reset{
+			font-size: 22px;
+			color: #727375;
+			text-align: center;
+			margin-bottom: 96px;
+			letter-spacing: 2px;
+		}
+		input{
+			margin-bottom: 43px;
+		}
+		.msg{
+			font-size: 15px;
+			color: #00D2FE;
+			position: absolute;
+			top: 324px;
+			left: 90px;
+		}
+	}
+
+	// 手机验证
+	.container5{
+		width: 392px;
+		position: absolute;
+		// top: 228px;
+		top: 24%;
+		left: 50%;
+		margin-left: -196px;
+		display: none;
+		h1{
+			margin-bottom: 72px;
+		}
+		#get_captcha{
+			position: absolute;
+			top: 200px;
+			right: 16px;
+			width: 126px;
+			height: 50px;
+			background: url(/static/imgs/get_code.png) 0 0 no-repeat;
+			font-size: 14px;
+			color: #fff;
+			text-align: center;
+			line-height: 44px;
+			cursor: pointer;
+		}
+		.wait{
+			height: 32px;
+			background-color: #D7D7DF;
+			border-radius: 15px;
+			position: absolute;
+			top: 208px;
+			right: 25px;
+			line-height: 32px;
+			padding: 0 10px 0 15px;
+			color: #fff;
+			font-size: 14px;
+			text-align: center;
+			display: none;
+			i{
+				font-style: normal;
+			}
+		}
+		a.button{
+			margin-top: 43px;
+		}
+		.msg{
+			font-size: 15px;
+			color: #00D2FE;
+			position: absolute;
+			top: 336px;
+			left: 38px;
+		}
+		// 弹出层
+		.popup{
+			width: 100%;
+			height: 100%;
+			background: url(/static/imgs/popup_bg.png) 0 0 repeat;
+			position: fixed;
+			top: 0;
+			left: 0;
+			display: none;
+			.pop_content{
+				width: 678px;
+				height: 517px;
+				background-color: #fff;
+				border-radius: 10px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -258px;
+				margin-left: -339px;
+				h2{
+					font-size: 30px;
+					color: #00D2FF;
+					text-align: center;
+					letter-spacing: 2px;
+					padding: 92px 0 56px;
+				}
+				p{
+					font-size: 22px;
+					color: #737375;
+					text-align: center;
+					line-height: 48px;
+				}
+				a{
+					width: 232px;
+					height: 88px;
+					background: url(/static/imgs/cancel_btn.png) 0 0 no-repeat;
+					font-size: 22px;
+					text-align: center;
+					line-height: 76px;
+					position: absolute;
+					bottom: 75px;
+					left: 82px;
+				}
+				#cancel_btn{
+					color: #737375;
+				}
+				.sure_btn{
+					background-image: url(/static/imgs/sure_btn.png);
+					color: #FFF;
+					left: auto;
+					right: 82px;
+				}
+			}
+		}
+	}
+
+	// 手机绑定
+	.container6{
+		width: 392px;
+		position: absolute;
+		// top: 238px;
+		top: 25.1%;
+		left: 50%;
+		margin-left: -196px;
+		display: none;
+		h1{
+			margin-bottom: 92px;
+		}
+		p.set{
+			font-size: 16px;
+			color: #737375;
+			text-align: center;
+			margin-bottom: 19px;
+			span{
+				color: #00D2FF;
+			}
+		}
+		.msg{
+			font-size: 15px;
+			color: #00D2FE;
+			position: absolute;
+			top: 316px;
+			left: 38px;
+		}
+		a.button{
+			margin-top: 43px;
+		}
+		// 弹出层
+		.popup{
+			width: 100%;
+			height: 100%;
+			background: url(/static/imgs/popup_bg.png) 0 0 repeat;
+			position: fixed;
+			top: 0;
+			left: 0;
+			display: none;
+			.pop_content{
+				width: 635px;
+				height: 517px;
+				background-color: #fff;
+				border-radius: 10px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -258px;
+				margin-left: -317px;
+				h2{
+					font-size: 30px;
+					color: #00D2FF;
+					text-align: center;
+					letter-spacing: 2px;
+					padding: 92px 0 89px;
+				}
+				p{
+					font-size: 22px;
+					color: #737375;
+					text-align: center;
+					letter-spacing: 1px;
+					span{
+						color: #00D2FF;
+					}
+				}
+				.success_btn{
+					display: block;
+					width: 232px;
+					height: 88px;
+					background: url(/static/imgs/sure_btn.png) 0 0 no-repeat;
+					font-size: 22px;
+					text-align: center;
+					line-height: 76px;
+					color: #fff;
+					margin: 100px auto 0;
+				}
+			}
+		}
+	}
+
+	// 找回密码
+	.container7{
+		width: 392px;
+		position: absolute;
+		// top: 220px;
+		top: 23.2%;
+		left: 50%;
+		margin-left: -196px;
+		display: none;
+		h1{
+			margin-bottom: 108px;
+		}
+		a.next_step{
+			margin: 104px 0 7px;
+		}
+		.msg{
+			font-size: 15px;
+			color: #00D2FE;
+			position: absolute;
+			top: 220px;
+			left: 38px;
+		}
+	}
+
+	// 填写验证码
+	.container8{
+		width: 392px;
+		height: 450px;
+		position: absolute;
+		// top: 220px;
+		top: 23.2%;
+		left: 50%;
+		margin-left: -196px;
+		display: none;
+		h1{
+			margin-bottom: 90px;
+		}
+		p{
+			font-size: 16px;
+			color: #737375;
+			padding: 0 0 18px 36px;
+			span{
+				color: #00D2FF;
+			}
+		}
+		input{
+			margin-bottom: 84px;
+		}
+		.wait,.send_again{
+			position: absolute;
+			font-size: 15px;
+			color: #fff;
+			text-align: center;
+		}
+		.wait{
+			height: 32px;
+			background-color: #D7D7DF;
+			border-radius: 15px;
+			top: 185px;
+			right: 27px;
+			line-height: 32px;
+			padding: 0 10px 0 15px;
+			i{
+				font-style: normal;
+			}
+		}
+		.send_again{
+			width: 114px;
+			height: 50px;
+			background: url(/static/imgs/send_again.png) 0 0 no-repeat;
+			top: 179px;
+			right: 18px;
+			line-height: 42px;
+			cursor: pointer;
+			display: none;
+		}
+		.msg{
+			font-size: 15px;
+			color: #00D2FE;
+			position: absolute;
+			top: 240px;
+			left: 0;
+		}
+	}
+
+	// 设置新密码
+	.container9{
+		width: 392px;
+		position: absolute;
+		// top: 220px;
+		top: 23.2%;
+		left: 50%;
+		margin-left: -196px;
+		display: none;
+		h1{
+			margin-bottom: 74px;
+		}
+		p{
+			font-size: 16px;
+			color: #737375;
+			padding: 0 0 16px 36px;
+			span{
+				color: #00D2FF;
+			}
+		}
+		.msg{
+			font-size: 15px;
+			color: #00D2FE;
+			position: absolute;
+			top: 374px;
+			left: 0;
+		}
+		a.button{
+			margin-top: 43px;
+		}
+		// 弹出层
+		.popup{
+			width: 100%;
+			height: 100%;
+			background: url(/static/imgs/popup_bg.png) 0 0 repeat;
+			position: fixed;
+			top: 0;
+			left: 0;
+			display: none;
+			.pop_content{
+				width: 600px;
+				height: 399px;
+				background-color: #fff;
+				border-radius: 10px;
+				// margin: 251px auto 0;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -199px;
+				margin-left: -300px;
+				h2{
+					font-size: 30px;
+					color: #00D2FF;
+					text-align: center;
+					line-height: 399px;
+					letter-spacing: 2px;
+				}
+			}
+		}
+	}
+
+	// 邮箱绑定
+	.container10{
+		width: 392px;
+		position: absolute;
+		top: 25.1%;
+		left: 50%;
+		margin-left: -196px;
+		// display: none;
+		h1{
+			margin-bottom: 92px;
+		}
+		.msg{
+			font-size: 15px;
+			color: #00D2FE;
+			position: absolute;
+			top: 278px;
+			left: 38px;
+		}
+		a.button{
+			margin-top: 43px;
+		}
+	}
+
+	// 绑定邮件已发送
+	.container11{
+		width: 574px;
+		position: absolute;
+		top: 23.2%;
+		left: 50%;
+		margin-left: -287px;
+		display: none;
+		h1{
+			margin-bottom: 139px;
+		}
+		p{
+			font-size: 16px;
+			color: #737375;
+			line-height: 38px;
+			letter-spacing: 1px;
+		}
+		p.sended{
+			font-size: 22px;
+			span{
+				color: #00D2FF;
+			}
+		}
+		p.second{
+			margin-bottom: 133px;
+		}
+	}
+
+	// 邮箱验证成功
+	.container12{
+		width: 392px;
+		position: absolute;
+		// top: 304px;
+		top: 32%;
+		left: 50%;
+		margin-left: -196px;
+		// display: none;
+		p{
+			font-size: 30px;
+			color: #737375;
+			text-align: center;
+			margin-bottom: 116px;
+		}
+	}
+
+	// 邮件找密码
+	.container13{
+		width: 600px;
+		position: absolute;
+		top: 23.2%;
+		left: 50%;
+		margin-left: -300px;
+		display: none;
+		text-align: center;
+		h1{
+			margin-bottom: 139px;
+		}
+		p{
+			font-size: 16px;
+			color: #737375;
+			line-height: 38px;
+			letter-spacing: 1px;
+		}
+		p.sended{
+			font-size: 22px;
+			span{
+				color: #00D2FF;
+			}
+		}
+		p.second{
+			margin-bottom: 133px;
+		}
+	}
+
+	// 邮箱解绑
+	.container14{
+		width: 392px;
+		position: absolute;
+		// top: 220px;
+		top: 23.2%;
+		left: 50%;
+		margin-left: -196px;
+		display: none;
+		h1{
+			margin-bottom: 107px;
+		}
+		p{
+			font-size: 18px;
+			color: #737375;
+			text-align: center;
+			span{
+				display: block;
+				font-size: 24px;
+				color: #00D2FF;
+				margin: 17px 0 105px;
+			}
+		}
+	}
+
+	// 邮件解绑
+	.container15{
+		width: 574px;
+		position: absolute;
+		// top: 220px;
+		top: 23.2%;
+		left: 50%;
+		margin-left: -287px;
+		display: none;
+		h1{
+			margin-bottom: 139px;
+		}
+		p{
+			font-size: 16px;
+			color: #737375;
+			line-height: 38px;
+			letter-spacing: 1px;
+		}
+		p.sended{
+			font-size: 22px;
+			span{
+				color: #00D2FF;
+			}
+		}
+		p.second{
+			margin-bottom: 133px;
+		}
+	}
+
+	// 邮箱解绑成功
+	.container16{
+		width: 392px;
+		position: absolute;
+		// top: 304px;
+		top: 32%;
+		left: 50%;
+		margin-left: -196px;
+		display: none;
+		p{
+			font-size: 30px;
+			color: #737375;
+			text-align: center;
+			margin-bottom: 116px;
+		}
+	}
+
+	// 手机解绑
+	.container17{
+		width: 392px;
+		position: absolute;
+		// top: 220px;
+		top: 23.2%;
+		left: 50%;
+		margin-left: -196px;
+		display: none;
+		h1{
+			margin-bottom: 79px;
+		}
+		p{
+			font-size: 18px;
+			color: #737375;
+			text-align: center;
+			span{
+				font-size: 24px;
+				color: #00D2FF;
+				display: block;
+				margin: 39px 0 63px;
+			}
+		}
+		input{
+			margin-bottom: 44px;
+		}
+		.wait,.send_again{
+			position: absolute;
+			font-size: 15px;
+			color: #fff;
+			text-align: center;
+		}
+		.wait{
+			height: 32px;
+			background-color: #D7D7DF;
+			border-radius: 15px;
+			top: 292px;
+			right: 27px;
+			line-height: 32px;
+			padding: 0 10px 0 15px;
+			cursor: pointer;
+		}
+		.send_again{
+			width: 114px;
+			height: 50px;
+			background: url(/static/imgs/send_again.png) 0 0 no-repeat;
+			top: 286px;
+			right: 18px;
+			line-height: 42px;
+			display: none;
+		}
+		a.button{
+			margin-bottom: 6px;
+		}
+		// 弹出层
+		.popup{
+			width: 100%;
+			height: 100%;
+			background: url(/static/imgs/popup_bg.png) 0 0 repeat;
+			position: fixed;
+			top: 0;
+			left: 0;
+			display: none;
+			.pop_content{
+				width: 600px;
+				height: 399px;
+				background-color: #fff;
+				border-radius: 10px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -300px;
+				margin-top: -199px;
+				h2{
+					font-size: 30px;
+					color: #00D2FF;
+					text-align: center;
+					line-height: 399px;
+				}
+			}
+		}
+	}
+
+	// email find verify
+	#bind_verift{
+		font-size: 32px;
+		color: #737375;
+		text-align: center;
+		margin-top: 350px;
+	}
+}
