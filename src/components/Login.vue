@@ -23,9 +23,15 @@
   @import '../assets/css/common.less';
 </style>
 <script>
-  export default {
-    name: 'login'
-    // components:[]
-  }
+export default {
+  name: 'login',
+  data () {
+    return {}
+  },
+  created () {},
+  mounted () {},
+  updated () {},
+  methods: {}
+}
 </script> 
 

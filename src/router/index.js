@@ -15,6 +15,7 @@ Vue.use(Router)
 
 // 由于外部有个链接跳转所以要把邮箱和手机绑定做进路由
 export default new Router({
+  // mode: 'history',
   routes: [
     {
       path: '/',

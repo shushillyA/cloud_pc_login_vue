@@ -3,7 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueResource from 'vue-resource'
+// import $ from 'jquery'
+// console.log($, 'jq')
+// import * as $ from './js/jquery.cookie.js'
+// import * as config from './js/config.js'
+// import * as common from './js/common.js'
 
+Vue.use(VueResource)
 Vue.config.productionTip = false
 // console.log(router)
 /* eslint-disable no-new */
