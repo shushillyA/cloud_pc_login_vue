@@ -2,8 +2,7 @@
   <!-- 账号登录 -->
   <div class="container container1" :class='activeClass'>
     <!-- 错误提示小弹层 -->
-    <i v-if='show'>{{message}}</i>
-    <i class='message'>{{message}}</i>
+    <i v-show='showMsg'>{{message}}</i>
     <input
       type="text"
       id="username"
@@ -36,7 +35,7 @@
       v-model='password'
     />
     <div id="softkey2"></div>
-    <div id="captcha_code">
+    <div id="captcha_code" v-show='captchaShow'>
       <!--<input
         type="text"
         id="captcha"
@@ -52,13 +51,13 @@
       />
       <div id="softkey3"></div>
       <div class="code">
-        <img src="" id="captcha_img"/>
+        <img v-bind:src="captchaSrc" id="captcha_img" @click='getCaptcha'/>
       </div>
     </div>
     <a href="javascript:;" class="button login_btn" id="login_btn1" @keyup.enter='enter' @click='loginFormCommit'>登录</a>
     <div class="other">
       <a class="other_login" href="javascript:;" @click='qrCode'>二维码登录</a>
-      <a class="forget" href="javascript:;">忘记密码？</a>
+      <a class="forget" href="javascript:;" @click='forGet'>忘记密码？</a>
     </div>
     <!-- 学籍号入口 -->
     <a href="javascript:;" class="student_code"></a>
@@ -76,10 +75,12 @@ export default {
       password: '',
       captcha: '',
       message: '',
-      show: false,
+      showMsg: false,
       channel: null,
       activeClass: '',
-      wrongNum: 0
+      wrongNum: 0,
+      captchaShow: false,
+      captchaSrc: ''
     }
   },
   created () {
@@ -88,12 +89,30 @@ export default {
     if (this.channel != null && this.channel.toString().length>0) {
         this.activeClass = 'active'
     };
+    // 绑定键盘事件
+    console.log($(document), '键盘事件')
+    let self = this
+    $(document).keyup(function(event){
+      if(event.keyCode == "13"){
+        self.loginFormCommit();
+      }
+    });
   },
   mounted () {
   },
   updated () {
   },
   methods: {
+    // 忘记密码跳转
+    forGet() {
+      // 跳转页面
+      window.$.cookie('cont_status','find_pwd');
+      // this.$router.replace({name:'find-password'})
+      this.$router.replace({name:'user-setting'})
+      // this.$router.push({name:'find-password'})
+      console.log('忘记密码跳转')
+    },
+    // 键盘登录
     enter(ev) {
       console.log('enter')
       if(ev.keyCode == 13) {
@@ -105,12 +124,12 @@ export default {
     loginFormCommit () {
       // 表单验证
       if (this.username === '') {
-        this.show = true
+        this.showMsg = true
         this.message = '请输入用户名'
         return false
       }
       if (this.password === '') {
-        this.show = true
+        this.showMsg = true
         this.message = '请输入密码'
         return false
       }
@@ -128,7 +147,7 @@ export default {
           this.getUsers()
         } else if (data.success == false) {
           ++this.wrongNum
-          this.show = true
+          this.showMsg = true
           let obj = data.error.fields;
           if (obj) {
             if (obj.password && obj.username) {
@@ -141,23 +160,23 @@ export default {
                 console.log(obj[key]);
                 this.message = obj[key];
                 if (key == 'token') {
-                    this.show = false;
+                    this.showMsg = false;
                     window.getToken();
                     setTimeout(this.loginFormCommit, 100);
                 };
                 if (key == 'username') {
-                    this.show = false;
-                    // window.location.href='set.html';
+                    this.showMsg = false;
                     window.$.cookie('cont_status','username');
+                    this.$router.replace({name:'user-setting'})
                 };
                 if (key == 'password') {
-                    this.show = false;
+                    this.showMsg = false;
                     window.$.cookie('curAccount',username);
-                    // window.location.href='set.html';
                     window.$.cookie('cont_status','password');
+                    this.$router.replace({name:'user-setting'})
                 };
                 if (key == 'middleware.check-login.is-login') {
-                    this.show = false;
+                    this.showMsg = false;
                     window.resetToken();
                     setTimeout(this.loginFormCommit, 100);
                 };
@@ -172,20 +191,26 @@ export default {
         }
       })
     },
+    // 验证码
     getCaptcha (){
       this.$http.post(baseUrl + 'captcha.get',{
         token: window.token,
         size: '160x40'
       },{emulateJSON:true}).then((receiveObj => {
         let data = receiveObj.data
+        console.log(data, '验证码接口')
         if (data.success == true) {
-          this.show = true;
-          $('#captcha_img').attr('src', data.image);
+          console.log('获取验证码成功')
+          console.log(this.captchaShow)
+          this.captchaShow = true;
+          console.log(this.captchaShow)
+          this.captchaSrc = data.image
         } else if (data.error.fields.token) {
           window.getToken();
         };
       }))
     },
+    // 角色列表
     getUsers (){
       this.$http.post(window.baseUrl + 'passport.users.get',{
         token: window.token
@@ -200,14 +225,15 @@ export default {
             this.captcha = ''
           }
           if (data.roles.length > 1) {
-            this.$router.push({name: MobileBind});  //有问题
-            $.cookie('cont_status','roles');
+            window.$.cookie('cont_status','roles');
+            this.$router.replace({name:'user-setting'})
           } else {
             this.userLogin(0);
           }
         }
       })
     },
+    // 角色登录
     userLogin (index) {
       this.$http.post(window.baseUrl + 'passport.user.login',{
         token: window.token,
@@ -227,7 +253,8 @@ export default {
       })
     },
     qrCode () {
-      this.$router.push({name:'qrcode-login'})
+      // this.$router.push({name:'qrcode-login'})
+      this.$router.replace({name:'qrcode-login'})
     }
   }
 }
